@@ -1,0 +1,13 @@
+# Keystore / signing secrets — never commit
+keystore.properties
+keystore/
+*.jks
+*.keystore
+
+# Local machine config
+local.properties
+
+# Build outputs
+/build
+/app/build
+.gradle/

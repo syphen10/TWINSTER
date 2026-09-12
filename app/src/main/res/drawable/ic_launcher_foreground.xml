@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Seven-bar equalizer mark, same motif as the splash screen's soundwave animation, sweeping
+     from the app's green brand color through to pink — reads as music at a glance, unlike the
+     previous two-flat-circles placeholder. Colors trace a vivid hue path between the two brand
+     colors (through blue/violet) rather than a straight RGB blend, which would pass through a
+     desaturated gray midpoint. Bar heights stay well inside the ~66dp adaptive-icon safe zone so
+     nothing clips on circle/squircle/rounded-square launcher masks. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:fillColor="#1ED760" android:pathData="M14,43 L22,43 L22,65 L14,65 Z" />
+    <path android:fillColor="#25DEBF" android:pathData="M26,37 L34,37 L34,71 L26,71 Z" />
+    <path android:fillColor="#2DABE4" android:pathData="M38,32 L46,32 L46,76 L38,76 Z" />
+    <path android:fillColor="#355BEB" android:pathData="M50,28 L58,28 L58,80 L50,80 Z" />
+    <path android:fillColor="#6D3DF2" android:pathData="M62,32 L70,32 L70,76 L62,76 Z" />
+    <path android:fillColor="#CB46F8" android:pathData="M74,37 L82,37 L82,71 L74,71 Z" />
+    <path android:fillColor="#FF4FD8" android:pathData="M86,43 L94,43 L94,65 L86,65 Z" />
+</vector>
