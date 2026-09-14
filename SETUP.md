@@ -207,6 +207,33 @@ intentionally **not** duplicated again in this document, since `SETUP.md` is far
 casually shared, screenshotted, or committed to a public repo than a password manager entry is).
 `keystore.properties` in the project root holds the working copy Gradle actually reads.
 
+## 8. Pulling this project onto another machine (from GitHub)
+
+This repo intentionally does **not** contain `local.properties` or the release keystore/
+`keystore.properties` — both are gitignored because they hold real secrets and signing material.
+After cloning on a new machine, `assembleDebug` will run (it works without either file), but to get
+a fully working build with obscurity/genre lookups and a release build, you'll need to bring three
+things over yourself, none of them via git:
+
+1. **`local.properties`** — create this file at the project root with:
+   ```
+   sdk.dir=<path to that machine's Android SDK>
+   GENIUS_ACCESS_TOKEN=<your token from genius.com/api-clients>
+   THEAUDIODB_API_KEY=<your key, or the shared test key "123" for quick testing>
+   FACEBOOK_APP_ID=<optional, only for Instagram Stories attribution>
+   ```
+   Reuse the same `GENIUS_ACCESS_TOKEN`/`THEAUDIODB_API_KEY` values already in use elsewhere — these
+   are per-account API credentials, not per-machine, so there's nothing new to generate.
+2. **The release keystore** — copy `keystore/twinster-release.jks` and `keystore.properties` from
+   wherever you backed them up (see §7 above) into the same paths in the new checkout. Skip this if
+   you only need a debug build on this machine.
+3. **The Android SDK/JDK toolchain itself** — this isn't part of the repo at all; install Android
+   Studio (or just the command-line SDK tools) and a JDK 17 on the new machine the normal way, same
+   as any fresh Android dev setup.
+
+Once those are in place, `./gradlew assembleDebug` (or `assembleRelease` once the keystore is copied
+over) works exactly the same as on the original machine.
+
 ### Building and installing the release APK
 
 ```
